@@ -5,6 +5,11 @@ terraform {
       version = "3.56.0"
     }
   }
+    backend "s3" {
+    bucket ="asim-terraform-bucket17"
+    region ="us-east-2"
+    key = "terraform.tfstate"
+  }
 }
 
 # Configure the AWS Provider
@@ -55,3 +60,6 @@ module "asg" {
   security_groups         = module.ec2.security_groups_id
   sg_name = module.ec2.sg_name
 }
+
+
+
